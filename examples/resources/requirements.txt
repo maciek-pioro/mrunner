@@ -1,0 +1,7 @@
+neptune-client
+git+https://gitlab.com/awarelab/mrunner
+munch
+psutil
+cloudpickle
+gin-config
+mpi4py
