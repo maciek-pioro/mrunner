@@ -112,11 +112,10 @@ class ExperimentScript(GeneratedTemplateFile):
 
 
 class SlurmWrappersCmd(object):
-
     def __init__(self, experiment, script_path, array_size, cmd_type):
         self._experiment = experiment
         self._script_path = script_path
-        self.array_str = rf"0-{array_size-1}"
+        self.array_str = rf"0-{array_size - 1}"
         self._cmd = cmd_type
 
     @property
@@ -185,8 +184,8 @@ class SlurmWrappersCmd(object):
                     "Using %d/%d CPU cores per_task/total", cores_per_task, total_cpus
                 )
             elif resource_type == "gpu":  # TODO(PM): does not work at the moment
-                cmd_items += ["--gres", f"gpu:{int(resource_qty)}"]
-                LOGGER.debug("Using %d gpu", int(resource_qty))
+                cmd_items += ["--gres", f"gpu:{resource_qty}"]
+                LOGGER.debug("Using %d gpu", resource_qty)
             elif resource_type == "mem":
                 cmd_items += ["--mem", str(resource_qty)]
                 LOGGER.debug("Using %s memory", resource_qty)
@@ -202,12 +201,10 @@ class SlurmWrappersCmd(object):
 
 @attr.s
 class SlurmBackend(object):
-
     initialized = attr.ib(default=False, init=False)
     conn_cache = {}
 
     def run(self, experiments):
-
         experiment = experiments[
             0
         ]  # Assume that all experiments share deployment config. This should be reflected in all code.
