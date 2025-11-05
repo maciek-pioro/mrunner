@@ -185,7 +185,7 @@ class SlurmWrappersCmd(object):
                 )
             elif resource_type == "gpu":  # TODO(PM): does not work at the moment
                 cmd_items += ["--gres", f"gpu:{resource_qty}"]
-                LOGGER.debug("Using %d gpu", resource_qty)
+                LOGGER.debug("Using %s gpu", resource_qty)
             elif resource_type == "mem":
                 cmd_items += ["--mem", str(resource_qty)]
                 LOGGER.debug("Using %s memory", resource_qty)
