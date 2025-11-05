@@ -9,6 +9,7 @@ from pprint import pformat
 import click
 from path import Path
 
+from mrunner import __version__
 from mrunner.backends import get_backend
 from mrunner.cli.config import ConfigParser
 from mrunner.cli.config import context as context_cli
@@ -68,6 +69,7 @@ def _get_contexts(
 
 
 @click.group()
+@click.version_option(__version__)
 @click.option(
     "-v",
     "--verbose",

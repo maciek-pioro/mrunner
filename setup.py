@@ -1,8 +1,21 @@
+import re
+from pathlib import Path
+
 from setuptools import find_packages, setup
+
+
+def read_version() -> str:
+    """Extract package version from mrunner/__init__.py."""
+    version_file = Path(__file__).parent / "mrunner" / "__init__.py"
+    content = version_file.read_text(encoding="utf8")
+    match = re.search(r'^__version__\s*=\s*["\']([^"\']+)["\']', content, re.MULTILINE)
+    if not match:
+        raise RuntimeError("Unable to find __version__ in mrunner/__init__.py")
+    return match.group(1)
 
 setup(
     name="mrunner",
-    version="25.11",
+    version=read_version(),
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
