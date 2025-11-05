@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="mrunner",
-    version="24.11",
+    version="25.11",
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
