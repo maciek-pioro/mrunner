@@ -54,6 +54,7 @@ class SlurmContext(ContextBase):
     cache_dir_name: Path = DEFAULT_CACHE_DIR
     grid_logs_dir_name: str = DEFAULT_LOGS_DIR_NAME
     grid_configs_dir_name: str = DEFAULT_CONFIGS_DIR_NAME
+    shebang: str = "#!/usr/bin/env bash"
 
 
 @define

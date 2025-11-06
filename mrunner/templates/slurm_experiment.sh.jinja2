@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+{{ experiment.shebang }}
 {%- for sbatch_option in experiment.sbatch_options %}
 #SBATCH {{ sbatch_option }}
 {%- endfor %}
